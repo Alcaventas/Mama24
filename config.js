@@ -47,7 +47,7 @@ global.tiempo = d.toLocaleString('en-US', {hour: 'numeric', minute: 'numeric', s
 //* ****************************
 global.wm2 = `${dia} ${fecha}\nAlcashop.ff`;
 global.gt = '@Alcabot';
-global.mysticbot = '@Alcasho.ff';
+global.mysticbot = 'https://github.com/Alcaventas/Mama24';
 global.channel = '';
 global.md = 'https://github.com/Alcaventas/Mama24';
 global.mysticbot = 'https://github.com/Alcaventas/Mama24';

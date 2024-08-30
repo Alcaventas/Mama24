@@ -1141,15 +1141,15 @@ export async function handler(chatUpdate) {
         if (!('modohorny' in chat)) chat.modohorny = false;
         if (!('autosticker' in chat)) chat.autosticker = false;
         if (!('audios' in chat)) chat.audios = false;
-        if (!('antiLink' in chat)) chat.antiLink = false;
-        if (!('antiLink2' in chat)) chat.antiLink2 = false;
+        if (!('antiLink' in chat)) chat.antiLink = true;
+        if (!('antiLink2' in chat)) chat.antiLink2 = true;
         if (!('antiviewonce' in chat)) chat.antiviewonce = false;
         if (!('antiToxic' in chat)) chat.antiToxic = false;
         if (!('antiTraba' in chat)) chat.antiTraba = false;
         if (!('antiArab' in chat)) chat.antiArab = false;
         if (!('antiArab2' in chat)) chat.antiArab2 = false;
         if (!('antiporno' in chat)) chat.antiporno = false;
-        if (!('game' in chat)) chat.game = true;
+        if (!('game' in chat)) chat.game = false;
         if (!('modoadmin' in chat)) chat.modoadmin = false;
         if (!('simi' in chat)) chat.simi = false;
         if (!isNumber(chat.expired)) chat.expired = 0;
@@ -1167,8 +1167,8 @@ export async function handler(chatUpdate) {
           modohorny: true,
           autosticker: false,
           audios: true,
-          antiLink: false,
-          antiLink2: false,
+          antiLink: true,
+          antiLink2: true,
           antiviewonce: false,
           antiToxic: false,
           antiTraba: false,
@@ -1177,7 +1177,7 @@ export async function handler(chatUpdate) {
           antiporno: false,
           modoadmin: false,
           simi: false,
-          game: true,
+          game: false,
           expired: 0,
           language: 'es',
         };
@@ -1188,12 +1188,12 @@ export async function handler(chatUpdate) {
         if (!('self' in settings)) settings.self = false;
         if (!('autoread' in settings)) settings.autoread = false;
         if (!('autoread2' in settings)) settings.autoread2 = false;
-        if (!('restrict' in settings)) settings.restrict = false;
+        if (!('restrict' in settings)) settings.restrict = true;
         if (!('antiCall' in settings)) settings.antiCall = false;
-        if (!('antiPrivate' in settings)) settings.antiPrivate = false;
-        if (!('modejadibot' in settings)) settings.modejadibot = true;
+        if (!('antiPrivate' in settings)) settings.antiPrivate = true;
+        if (!('modejadibot' in settings)) settings.modejadibot = false;
         if (!('antispam' in settings)) settings.antispam = false;
-        if (!('audios_bot' in settings)) settings.audios_bot = true;
+        if (!('audios_bot' in settings)) settings.audios_bot = false;
         if (!('modoia' in settings)) settings.modoia = false;
       } else {
         global.db.data.settings[this.user.jid] = {
@@ -1202,10 +1202,10 @@ export async function handler(chatUpdate) {
           autoread2: false,
           restrict: false,
           antiCall: false,
-          antiPrivate: false,
-          modejadibot: true,
+          antiPrivate: true,
+          modejadibot: false,
           antispam: false,
-          audios_bot: true,
+          audios_bot: false,
           modoia: false
         };
       }
@@ -1634,7 +1634,7 @@ export async function participantsUpdate({ id, participants, action }) {
       if (chat.welcome && !chat?.isBanned) {
         const groupMetadata = await m?.conn?.groupMetadata(id) || (conn?.chats[id] || {}).metadata;
         for (const user of participants) {
-          let pp = 'https://raw.githubusercontent.com/BrunoSobrino/TheMystic-Bot-MD/master/src/avatar_contact.png';
+          let pp = 'https://raw.githubusercontent.com/Alcaventas/Mama24/luis/src/avatar_contact.png';
           try {
             pp = await m.conn.profilePictureUrl(user, 'image');
           } catch (e) {
